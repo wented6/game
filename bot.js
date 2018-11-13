@@ -40,12 +40,6 @@ client.on('ready', () => {
   
  
  
- const Discord = require('discord.js');
-const client = new Discord.Client();
-const UserBlocked = new Set(); 
-const settings = require('./settings.json')
-,ti={}  
-,spee={};
 
 
 client.on('ready', () => {
