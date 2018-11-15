@@ -6,12 +6,12 @@ const YouTube = require("simple-youtube-api");
 const fs = require("fs");
 const getYTID = require("get-youtube-id");
 const path = require('path');
-const version = 'res'; // تحديث بوتك
+const version = 'v1.6'; // تحديث بوتك
 const fetchVideoInfo = require("youtube-info");
 const initcmd = botSettings.initcmd;
 const ytApiKey = botSettings.ytApiKey;
 const youtube = new YouTube(ytApiKey);
-const botkahrba= ['228139766573432832']; // الايدي بتاعك انتا ووالادارة
+const botkahrba= ['ID']; // الايدي بتاعك انتا ووالادارة
 // By : Kahrba. || تم التطوير من قبل كههربا
 const bot = new Discord.Client({
 	disableEveryone: true
@@ -42,7 +42,7 @@ bot.on('ready', () => {
 });// By : Kahrba. || تم التطوير من قبل كههربا
 // By : Kahrba. || تم التطوير من قبل كههربا
 bot.on('message', message => {
-    if (message.content === initcmd + "SetDj") {
+    if (message.content === initcmd + "SettingsDj") {
     if (!botkahrba.includes(message.author.id)) return;
     if(!message.channel.guild) return message.channel.send('**هذا الامـر للسيرفرات فقط ## !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
@@ -61,11 +61,11 @@ bot.on('message', message => {
 
 bot.on('ready', () => {
 	// -
-  bot.user.setActivity("Univeres",{type: 'WATCHING'});
+  bot.user.setActivity("كههربا , <3",{type: 'WATCHING'});
   console.log('            ╔[════════════]╗');
   console.log('              Bot Is Online');
   console.log('            ╚[════════════]╝');
-  console.log('Universe server')
+  console.log('تم التطوير من قبل كههربا.')
 });
 
 
@@ -582,10 +582,82 @@ Developer By : <@286088294234718209>
    }
    });// By : Kahrba. || تم التطوير من قبل كههربا
 
- 
-    
+   bot.on("message", message => {
+   	   	        let kahrba = message.guild.member(message.author).roles.find('name', 'Dj');
+                if(!kahrba)
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()
+         .setColor("36393f")// By : Kahrba. || تم التطوير من قبل كههربا
+         .setDescription(`**
+         [Commands Help.]
+${initcmd}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${initcmd}skip ->  يتخطى الأغنية الحالية
+${initcmd}playlist ->  يعرض قائمة التشغيل الحالية
+${initcmd}repeat ->  يكرر تشغيل الاغنية من جديد
+${initcmd}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${initcmd}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${initcmd}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${initcmd}help or ${initcmd}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)// By : Kahrba. || تم التطوير من قبل كههربا
+   message.channel.send({embed});
 
- 
+   }
+   });// By : Kahrba. || تم التطوير من قبل كههربا
+
+/////////// By : Kahrba. || تم التطوير من قبل كههربا
+
+   bot.on("message", message => {
+   	        let kahrba = message.guild.member(message.author).roles.find('name', 'Dj');
+                if(!kahrba) return
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()// By : Kahrba. || تم التطوير من قبل كههربا
+         .setColor("36393f")// By : Kahrba. || تم التطوير من قبل كههربا
+         .setDescription(`**
+         [Commands Help.]
+${initcmd}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${initcmd}skip ->  يتخطى الأغنية الحالية
+${initcmd}playlist ->  يعرض قائمة التشغيل الحالية
+${initcmd}playlist remove [song number] ->  يزيل الأغنية المختارة من قائمة التشغيل (Dj)
+${initcmd}playlist clear ->  يزيل كل الأغاني من قائمة التشغيل (Dj)
+${initcmd}playlist shuffle ->  يغير قائمة التشغيل الحالية (Dj)
+${initcmd}repeat ->  يكرر تشغيل الاغنية من جديد
+${initcmd}stop ->  يتوقف عن تشغيل الموسيقى ويحذف جميع الأغاني في قائمة التشغيل (Dj)
+${initcmd}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${initcmd}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${initcmd}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${initcmd}help or ${initcmd}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)
+   message.channel.send({embed});// By : Kahrba. || تم التطوير من قبل كههربا
+
+   }// By : Kahrba. || تم التطوير من قبل كههربا
+   });
+
+   bot.on("message", message => {
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()
+         .setColor("36393f")
+         .setDescription(`**
+         [Commands Owner.]
+${initcmd}SettingsDj -> لظبط اعدادات
+${initcmd}wt [الحالة الجديدة] -> Watching - لتعين حالة للبوت
+${initcmd}ls [الحالة الجديدة] -> Listening - لتعين حالة للبوت
+${initcmd}st [الحالة الجديدة] -> Streaming - لتعين حالة للبوت
+${initcmd}setname [الاسم الجديد] -> UserName New - لوضع اسم جديد للبوت.
+${initcmd}setavatar [عنوان الصورة الجديده] -> New Avatar - لوضع صورة جديده للبوت.
+**`)
+   message.channel.send({embed});
+// By : Kahrba. || تم التطوير من قبل كههربا
+   }
+   });
+// By : Kahrba. || تم التطوير من قبل كههربا
+
+/*---------------------*/
+/* اوامر المساعدة , نهاية*/
+/*-------------------*/
+
+/*---------------------*/
+/* اوامر خاصة بصاحب البوت */
+/*-------------------*/
 
 bot.on('message', message => {// By : Kahrba. || تم التطوير من قبل كههربا
     var argresult = message.content.split(` `).slice(1).join(' ');
